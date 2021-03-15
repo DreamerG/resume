@@ -1,0 +1,35 @@
+// 常用颜色定义
+// 使用：m-c-xxxx  ex：m-c-default
+$color-list: (
+  'default': $color-default,
+  'FFF': $color-FFF,
+  '999': $color-999,
+  '111-60': $color-111-60,
+  'D1D1D1': $color-D1D1D1,
+  '2B2F32': $color-2B2F32,
+  '4250C3': $color-4250C3,
+  '070721': $color-070721,
+  '9A9A9A': $color-9A9A9A,
+  '333333': $color-333333,
+  '9A9A9A-60': $color-9A9A9A-60,
+  'F0562F': $color-F0562F
+);
+@each $name, $val in $color-list {
+  .m-c-#{$name} {
+    color: $val !important;
+  }
+}
+
+// 常用背景色定义
+// 使用：m-bg-xxxx  ex：m-bg-default
+$bg-color-list: (
+  'default': $color-default,
+  '000000': $color-000000,
+  'FFF': $color-FFF,
+  '070721': $color-070721
+);
+@each $name, $val in $bg-color-list {
+  .m-bg-#{$name} {
+    background-color: $val;
+  }
+}

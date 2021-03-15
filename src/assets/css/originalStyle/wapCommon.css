@@ -1,0 +1,151 @@
+/* 盒模型 */
+.border-box {
+  box-sizing: border-box;
+}
+/* 宽度 */
+.width-150 {
+  width: 150px;
+}
+
+/* 高度 */
+.height-max30 {
+  max-height: 30px;
+  height: 30px;
+}
+
+/* 行高 */
+.line-height18 {
+  line-height: 18px;
+}
+.line-height24 {
+  line-height: 24px;
+}
+.line-height34 {
+  line-height: 34px;
+}
+
+/* 对齐方式 */
+.text-center {
+  text-align: center;
+}
+.text-left {
+  text-align: left;
+}
+.text-right {
+  text-align: right;
+}
+.text-justify {
+  text-align: justify;
+}
+
+/* 边框 */
+.border { border: 1px solid; }
+[data-dpr="2"] .border { border: 2px solid; }
+[data-dpr="3"] .border { border: 3px solid; }
+
+/* 内边距 */
+.pad-18-0 {
+  padding: 18px 0;
+}
+.pad-30-0 {
+  padding: 30px 0;
+}
+.pad-30-18 {
+  padding: 30px 18px;
+}
+.pad-30 {
+  padding: 30px;
+}
+.pad-bt-30 {
+  padding-bottom: 30px;
+}
+
+/* 圆角 */
+.border-radius6 {
+  border-radius: 6px;
+}
+.border-radius15 {
+  border-radius: 15px;
+}
+
+/* 定位 */
+.pr {
+  position: relative;
+}
+.pa {
+  position: absolute;
+}
+.position-0 {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+/* 字体 */
+.letter-space2 {
+  letter-spacing: 2px;
+}
+.letter-space1 {
+  letter-spacing: 1px;
+}
+.font-bold {
+  font-weight: bold;
+}
+.common-title-font {
+  font-family: MicrosoftYaHei;
+  letter-spacing: 1px;
+  font-family: MicrosoftYaHeiSemibold;
+}
+.common-title-light {
+  font-family: MicrosoftYaHei;
+  letter-spacing: 1px;
+  font-family: MicrosoftYaHeiSemilight;
+}
+
+
+/* 盒子阴影 */
+.box-shadow {
+  box-shadow: 0 0 8px 0 rgba(43, 47, 50, 0.15);
+}
+
+.letter-space2 {
+  letter-spacing: 2px;
+}
+.letter-space1 {
+  letter-spacing: 1px;
+}
+
+/* 点击样式 */
+.tap-09BDC6 {
+  color: #2B2F32;
+}
+.tap-09BDC6:active {
+  color: #09BDC6;
+}
+
+.tap-border-09BDC6 {
+  color: #2B2F32;
+  border: 1px solid #BDBDBD;
+}
+.tap-border-09BDC6:active {
+  color: #09BDC6;
+  border: 1px solid #09BDC6;
+}
+
+/* 其它 */
+.common-title-set {
+  font-family: MicrosoftYaHeiSemibold;
+  font-size: 22px;
+  letter-spacing: 1px;
+  text-align: center;
+  line-height: 30px;
+  padding: 28px 0 24px;
+}
+
+.production-rule-title {
+  font-family: MicrosoftYaHeiSemibold;
+  font-size: 18px;
+  color: #000000;
+  letter-spacing: 0;
+}

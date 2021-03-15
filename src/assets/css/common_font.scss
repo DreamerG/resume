@@ -1,0 +1,12 @@
+$font-list: (12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 36, 38, 42, 50, 100);
+@each $i in $font-list {
+  .m-font-#{$i} {
+    font-size: #{$i}px;
+  }
+  [data-dpr='2'] .m-font-#{$i} {
+    font-size: #{$i * 2}px;
+  }
+  [data-dpr='3'] .m-font-#{$i} {
+    font-size: #{$i * 3}px;
+  }
+}

@@ -1,0 +1,410 @@
+// @import '../../MUI/index.scss';
+
+$isMobile: false;
+
+@import './common_flex.scss';
+@import './common_mixin.scss';
+@import './common_var.scss';
+@import './common_font.scss';
+@import './common_box.scss';
+@import './common_color.scss';
+@import './common_style.scss';
+
+$min-width: 1440px; // 最小宽度
+$screen-min-height: 700px; // 全屏滚动最小高度限制
+
+$header-height: 60px; // 头部栏高度
+$nav-height: 35px; // 导航栏高度
+
+/* 框架共通 */
+.m-ml-auto {
+  margin-left: auto;
+}
+.m-mr-auto {
+  margin-right: auto;
+}
+/* 字体颜色 */
+// @todo 字体颜色删除
+.c-fff {
+  color: #ffffff;
+}
+.c-474D51 {
+  color: #474d51;
+}
+.c-09BDC6 {
+  color: #09bdc6;
+}
+.c-979797 {
+  color: #979797;
+}
+.word-break-all {
+  word-break: break-all;
+  word-wrap: break-word;
+}
+.pre-wrap {
+  white-space: pre-wrap;
+}
+.text-justify {
+  text-align: justify;
+}
+
+.link-default {
+  @include link($color-default);
+}
+.link-info {
+  @include link($color-info);
+}
+
+.cursor-default {
+  cursor: default;
+}
+.cursor-pointer {
+  cursor: pointer;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  color: #000000;
+  font-size: 14px;
+  font-family: 'PingFang SC';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-smoothing: antialiased;
+  background: #eee;
+  min-width: 1200px;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+// 去除高德地图logo
+.amap-logo {
+  display: none !important;
+}
+// 去除高德地图版本号
+.amap-copyright {
+  opacity: 0 !important;
+}
+
+/* 按钮组 */
+.btn-group {
+  + .btn-group {
+    margin-left: 32px;
+  }
+}
+
+.btn-group-table {
+  + .btn-group-table {
+    margin-left: 24px;
+  }
+}
+
+.btn-short-message {
+  margin-left: 15px;
+  width: 130px;
+  min-width: 130px;
+}
+
+.btn-submit {
+  width: 172px;
+  min-width: 172px;
+}
+
+/* 其他共通 */
+.font-weight-blod {
+  font-weight: bold;
+}
+
+.red-dot {
+  height: 6px;
+  width: 6px;
+  display: inline-block;
+  border-radius: 50%;
+  background: red;
+}
+// 竖线
+.vertical-line {
+  display: inline-block;
+  border-left: 1px solid $color-AEAEAE;
+  width: 0px;
+}
+// 横线
+.horizontal-line {
+  display: inline-block;
+  border-top: 1px solid $color-AEAEAE;
+  height: 0px;
+}
+// 省略
+.text-ellipsis {
+  @include text-ellipsis;
+}
+
+.faceimg {
+  width: 48px;
+  height: 48px;
+  margin: auto;
+  border: 1px solid #d6d6d6;
+  overflow: hidden;
+  > img {
+    width: 100%;
+    height: 100%;
+  }
+}
+/******************************************************************************
+  浏览器兼容css
+******************************************************************************/
+// 主轴方向为Y轴时IE、safari浏览器m-item-flex-1样式替换
+@mixin m-item-flex-1-for-ie {
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: auto;
+}
+//非safari浏览器element-ui样式覆盖
+body:not([browser='safari']) {
+  .el-scrollbar__view {
+    &.el-time-spinner__list {
+      &:before,
+      &:after {
+        height: 70px;
+      }
+    }
+  }
+}
+
+// Edge浏览器
+body[browser='edge'] {
+  // 滚动条兼容
+  @media screen and (max-height: $screen-min-height) {
+    #app {
+      .main-content {
+        .menu,
+        .content {
+          height: auto;
+        }
+      }
+    }
+  }
+}
+// IE浏览器
+
+@media screen and(-ms-high-contrast:active), (-ms-high-contrast: none) {
+  .main-content {
+    &.m-item-flex-1 {
+      @include m-item-flex-1-for-ie;
+    }
+
+    .content {
+      > div {
+        .content-content {
+          &.m-item-flex-1 {
+            @include m-item-flex-1-for-ie;
+          }
+
+          .table-body.m-item-flex-1 {
+            @include m-item-flex-1-for-ie;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* 过度 */
+
+.transform-rotate-0 {
+  transform: rotate(0);
+  transition: transform 0.2s;
+}
+.transform-rotate-90 {
+  transform: rotate(90deg);
+  transition: transform 0.2s;
+}
+.transform-rotate-180 {
+  transform: rotate(180deg);
+  transition: transform 0.2s;
+}
+.center-area {
+  width: 1200px;
+  margin: 0 auto;
+}
+
+/* 上三角形 */
+.triangle-top {
+  &::after {
+    content: '';
+    width: 0;
+    height: 0;
+    border-right: 10px solid transparent;
+    border-left: 10px solid transparent;
+    border-bottom: 10px solid #fff;
+    position: absolute;
+    top: -10px;
+    left: calc(50% - 10px);
+  }
+}
+
+.m-all-fixed {
+  position: fixed !important;
+  width: 200px;
+  top: 72px;
+  // inset: 70px 1142.33px auto 334.667px;
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-top: 0px;
+}
+
+.seamless-warp2,
+.seamless-warp3 {
+  div {
+    display: flex;
+  }
+}
+
+// 超过3行省略号
+.m-ellipsis-l3 {
+  word-break: break-all;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  /*! autoprefixer: off */
+  -webkit-box-orient: vertical;
+}
+
+// 超过2行省略号
+.m-ellipsis-l2 {
+  word-break: break-all;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  /*! autoprefixer: off */
+  -webkit-box-orient: vertical;
+}
+
+.m-center-1200 {
+  width: 1200px;
+  margin: 0 auto;
+}
+
+.el-message {
+  min-width: 140px !important;
+  .m-chenggong {
+    color: #27c98d !important;
+    font-size: 20px !important;
+    margin-right: 8px;
+  }
+  .m-shibai {
+    color: #f0562f !important;
+    font-size: 20px !important;
+    margin-right: 8px;
+  }
+}
+.el-message--success,
+.el-message--error {
+  height: 62px !important;
+  background: #ffffff !important;
+  border: 1px solid #dddddd !important;
+  border-radius: 8px !important;
+  box-shadow: 0px 4px 8px 0px rgba(17, 31, 44, 0.08) !important;
+  .el-message__content {
+    color: rgba(51, 51, 51, 1) !important;
+    font-size: 16px !important;
+  }
+}
+.swiper-pagination-bullet-active {
+  background: #fff !important;
+  border: none !important;
+  opacity: 1 !important;
+}
+
+// icon偏上一像素
+.top-1 {
+  position: relative;
+  top: 1px;
+}
+
+// 饿了么UI alert框
+.el-message-box {
+  padding-bottom: 0px !important;
+  .el-message-box__header {
+    height: 56px !important;
+    padding: 17px 24px 8px;
+    .el-message-box__close {
+      color: #333 !important;
+      font-size: 16px !important;
+    }
+    .el-message-box__title {
+      span {
+        color: #333333 !important;
+        font-size: 16px !important;
+        font-weight: bold;
+      }
+    }
+  }
+  .el-message-box__content {
+    padding: 12px 24px !important;
+    p {
+      font-size: 16px !important;
+      color: #333 !important;
+    }
+  }
+  .el-message-box__btns {
+    height: 72px !important;
+    padding-top: 20px;
+    .el-button--primary {
+      width: 78px !important;
+      height: 30px !important;
+      background: #4250c3 !important;
+      border-color: #4250c3 !important;
+      border-radius: 4px !important;
+    }
+  }
+}
+.el-popup-parent--hidden {
+  padding-right: 0px !important;
+  overflow: auto !important;
+}
+
+// 设备详情购买按钮
+.btn-4250C3-cicle {
+  height: 32px;
+  line-height: 32px;
+  background: #4250c3;
+  padding: 0 30px;
+  color: #fff;
+  display: inline-block;
+  cursor: pointer;
+  border-radius: 16px;
+  position: relative;
+}
+.btn-4250C3-cicle .mask {
+  display: none;
+  position: absolute;
+  border-radius: 16px;
+  height: 100%;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.15);
+  top: 0;
+  left: 0;
+}
+.btn-4250C3-cicle:hover {
+  .mask {
+    display: block;
+  }
+}
+.search {
+  .el-input {
+    width: 180px !important;
+  }
+}
